@@ -367,7 +367,7 @@ def controller(A, B, fnext, x0, u0, xinit, uinit, dt):
 if __name__ == "__main__":
   thetal, thetaf = get_thetas()
   print("Thetaf:", thetaf, "Thetal:", thetal)
-  x0, u0 = get_eqb(pb = [1, 1, 2], thetal=thetal, thetaf=thetaf) #ref variables
+  x0, u0 = get_eqb(pb = [1, 1, 3], thetal=thetal, thetaf=thetaf) #ref variables
   xinit, uinit = get_eqb(thetal=thetal, thetaf=thetaf) #initial variables
   # x0 = np.array(x0.tolist())
   # u0 = np.array(u0.tolist())
