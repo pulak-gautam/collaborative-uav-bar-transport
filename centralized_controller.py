@@ -250,7 +250,7 @@ def equations(vars):
     e2 = T_expr * math.cos(thetal) - massb * g / 2
     return [e1, e2]
 
-def get_thetas(initial_guess = [0.1, 0.1]):
+def get_thetas(initial_guess = [0.0, 0.0]):
     solution = fsolve(equations, initial_guess)
 
     thetal_solution, thetaf_solution = solution
