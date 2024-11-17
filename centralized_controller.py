@@ -78,10 +78,10 @@ kf = 8.54858e-06
 km = 1.6e-2
 
 # Bar parameters
-Lb = 1.5       
+Lb = 1.5      
 d1 = Lb / 2
 d2 = Lb / 2      
-massb = 0.5  
+massb = 0.5
 Jb = massb*Lb*Lb / 12        
 
 # Cable parameters
@@ -250,7 +250,7 @@ def equations(vars):
     e2 = T_expr * math.cos(thetal) - massb * g / 2
     return [e1, e2]
 
-def get_thetas(initial_guess = [0.2, 0.2]):
+def get_thetas(initial_guess = [0.1, 0.1]):
     solution = fsolve(equations, initial_guess)
 
     thetal_solution, thetaf_solution = solution
@@ -372,12 +372,12 @@ if __name__ == "__main__":
   # x0 = np.array(x0.tolist())
   # u0 = np.array(u0.tolist())
   
-  print("x0:", x0)
-  print("xinit:", xinit)
-  
+  # print("x0:", x0)
+  # print("xinit:", xinit)
+
   nx = 36
   nu  = 8 
-  dt = 0.02
+  dt = 0.3
 
   x = ca.MX.sym('x', nx, 1)
   u = ca.MX.sym('u', nu, 1)
@@ -405,7 +405,7 @@ if __name__ == "__main__":
   xnext = xcurr + dt/6 * (k1 + 2*k2 + 2*k3 + k4)
   fnext = ca.Function('fnext', [xcurr, ucurr], [xnext])
   
-  N_sim = 100
+  N_sim = 60
   trajectory_pb = []
   trajectory_p1 = []
   trajectory_p2 = []
@@ -498,21 +498,3 @@ if __name__ == "__main__":
     ax.set_title('Position Trajectories without Cable/Bar Lines')
     ax.legend()
     plt.show()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    
