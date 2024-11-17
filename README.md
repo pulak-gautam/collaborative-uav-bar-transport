@@ -7,12 +7,18 @@ Collaborative UAV Bar Transportation"</a> ICRA'22
 
 ## Running the Code
 
-Following lines on code execution defines initial state vector and target setpoint. Modify these with your desired values. You may also change value of ``thetal`` and ``thetaf`` at eqb, by passing your desired values.
+Following lines on code execution defines initial state vector and target setpoint. Modify these with your desired values. 
 ```python
+  thetal, thetaf = get_thetas() #define your thetas
   x0, u0 = get_eqb(pb = [1, 1, 2], thetal=thetal, thetaf=thetaf) #ref variables
   xinit, uinit = get_eqb(thetal=thetal, thetaf=thetaf) #initial variables
-# get_eqb(pb, yawb, yaw1, yaw2, thetaf, thetal) -> x, u
+# get_eqb(pb, yawb, yaw1, yaw2, thetaf, thetal) -> x, u 
+# get_thetas([thetal, thetaf]) -> thetal, thetaf
 ```
+
+You may also change value of ``thetal`` and ``thetaf`` at eqb by passing the desired values in get_thetas() to get the closest solution to your given initial value. These can be then passed on to ``get_eqb`` function for getting corresponding state vector and control inputs.
+
+
 Default value takes initial position of bar ``pb`` to be ``[0, 0, 2]`` and all yaws as zero, and both ``thetal`` and ``thetaf`` to be zeros. 
 
 Once you have defined your desired initial state vector and control input (``xinit`` and ``uinit``), and target setpoint (``x0`` and ``u0``), you can simply run the python file to output controller results which includes 3D plot of trajectory and graphs showing tracking of state vector. 
