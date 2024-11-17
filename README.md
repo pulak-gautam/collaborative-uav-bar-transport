@@ -17,7 +17,7 @@ Default value takes initial position of bar ``pb`` to be ``[0, 0, 2]`` and all y
 
 Once you have defined your desired initial state vector and control input (``xinit`` and ``uinit``), and target setpoint (``x0`` and ``u0``), you can simply run the python file to output controller results which includes 3D plot of trajectory and graphs showing tracking of state vector. 
 ```python
-python controller.py
+python centralized_controller.py
 ```
 ## Implementation Details
 The single python implements the entire dynamics, linearization, discretization and finally a linear MPC solver using ``ipopt`` solver using ``casadi`` symbolic library.
